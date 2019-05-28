@@ -10,7 +10,7 @@ class UserBean(object):
     def get_user_bean(login):
         row = CommonBean().fetch_row(UserBean._SELECT_USER_BY_LOGIN % (str(login)))
         if row:
-            return row
+            return row[0]
         else:
             return
 
