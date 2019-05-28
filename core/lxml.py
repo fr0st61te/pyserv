@@ -49,7 +49,7 @@ def create_rsp(data, id):
         param.setAttribute('t', Types.types[type(value)])
         answer.appendChild(param)
     # 23 symbols - this is <?xml version="1.0" ?>
-    return str(doc.toxml()[22:]) + str("\x00")
+    return str(doc.toxml()[22:])
 
 
 class TestSequenceFunctions(unittest.TestCase):
