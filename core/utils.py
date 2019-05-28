@@ -2,8 +2,8 @@
 import traceback
 import json
 import sys
-from server.core.lxml import create_rsp as xml_create_rsp
-from server.core.lxml import parse_rsp as xml_parse_rsp
+from core.lxml import create_rsp as xml_create_rsp
+from core.lxml import parse_rsp as xml_parse_rsp
 from datetime import datetime
 from datetime import timedelta
 

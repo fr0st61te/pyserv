@@ -2,7 +2,7 @@
 import abc
 import asyncio
 import socket
-from server.core.log import Log
+from core.log import Log
 
 
 log = Log().get_logger()

@@ -1,5 +1,5 @@
 # -*- coding: utf8 -*-
-from server.bean.common_bean import CommonBean
+from bean.common_bean import CommonBean
 
 
 class UserBean(object):

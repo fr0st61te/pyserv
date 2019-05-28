@@ -1,6 +1,6 @@
 # -*- coding: utf8 -*-
-from server.core.db import dbEngine
-from server.core.utils import Singleton
+from core.db import dbEngine
+from core.utils import Singleton
 
 
 class CommonBean(metaclass=Singleton):

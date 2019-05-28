@@ -1,9 +1,9 @@
 # -*- coding: utf8 -*-
 import asyncio
 import logging
-from server.core.utils import Mlang
-from server.client_protocol import ClientProtocol as Protocol
-from server.core.log import Log
+from core.utils import Mlang
+from client_protocol import ClientProtocol as Protocol
+from core.log import Log
 
 log = Log().get_logger()
 log.setLevel(logging.DEBUG)

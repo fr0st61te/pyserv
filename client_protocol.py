@@ -1,8 +1,8 @@
 # -*- coding: utf8 -*-
-from server.core.protocol import Protocol
-from server.command_handler import CommandHandler
+from core.protocol import Protocol
+from command_handler import CommandHandler
 
-from server.core.utils import Mlang
+from core.utils import Mlang
 
 
 class ClientProtocol(Protocol):

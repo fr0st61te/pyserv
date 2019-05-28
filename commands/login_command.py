@@ -1,8 +1,8 @@
 # -*- coding: utf8 -*-
 import hashlib
-from server.user_manager import UserManager
-from server.core.utils import Mlang
-from server.core.log import Log
+from user_manager import UserManager
+from core.utils import Mlang
+from core.log import Log
 
 log = Log().get_logger()
 

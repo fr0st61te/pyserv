@@ -1,6 +1,6 @@
 # -*- coding: utf8 -*-
-from server.core.utils import Singleton
-from server.bean.user_bean import UserBean
+from core.utils import Singleton
+from bean.user_bean import UserBean
 import threading
 
 

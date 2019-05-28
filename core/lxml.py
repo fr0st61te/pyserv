@@ -1,6 +1,6 @@
 # -*- coding: utf8 -*-
 from xml.dom.minidom import Document
-from server.const import Types
+from const import Types
 import xml.parsers.expat
 import unittest
 

@@ -1,6 +1,6 @@
 # -*- coding: utf8 -*-
 import logging
-from server.core.utils import Singleton
+from core.utils import Singleton
 
 
 class Log(metaclass=Singleton):

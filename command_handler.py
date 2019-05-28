@@ -1,9 +1,9 @@
 # -*- coding: utf8 -*-
-from server.commands.login_command import login_command
-from server.commands.error_command import error_command
-from server.core.utils import Singleton
+from commands.login_command import login_command
+from commands.error_command import error_command
+from core.utils import Singleton
 from concurrent.futures import ThreadPoolExecutor
-from server.core.log import Log
+from core.log import Log
 
 
 log = Log().get_logger()
