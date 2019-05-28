@@ -1,12 +1,19 @@
 # -*- coding: utf8 -*-
 from core.db import dbEngine
 from core.utils import Singleton
+from core.log import Log
+import os
 
+log = Log().get_logger()
 
 class CommonBean(metaclass=Singleton):
 
     def __init__(self):
-        self.engine = dbEngine.createSqliteEngine("../db", "plain")
+        path = './db'
+        if 'PYSERV_DB_PATH' in os.environ:
+            path = os.environ['PYSERV_DB_PATH']
+        log.debug("db path %s" % path)
+        self.engine = dbEngine.createSqliteEngine(path, 'plain')
         self.connection = self.engine.connect()
 
     def get_connection(self):

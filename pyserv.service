@@ -1,0 +1,10 @@
+[Unit]
+Description=Simple python network server
+After=network.target
+
+[Service]
+Environment=PYSERV_DB_PATH=/mnt/games/work/server/server/db
+ExecStart=/usr/bin/env python3 /mnt/games/work/server/server/lserver.py
+
+[Install]
+WantedBy=multi-user.target

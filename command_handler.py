@@ -21,6 +21,6 @@ class CommandHandler(metaclass=Singleton):
     def exec_cmd(self, transport, data):
         try:
             self.threadpool.submit(self.commands[data['id']], transport, data)
-            log.debug("add command %s into threadpool"%(str(data['id'])))
+            log.debug("add command '%s' into threadpool"%(str(data['id'])))
         except KeyError:
             self.threadpool.submit(self.commands[99], transport, data)

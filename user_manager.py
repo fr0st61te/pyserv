@@ -1,8 +1,10 @@
 # -*- coding: utf8 -*-
 from core.utils import Singleton
 from bean.user_bean import UserBean
+from core.log import Log
 import threading
 
+log = Log().get_logger()
 
 class UserManager(metaclass=Singleton):
 
@@ -63,8 +65,10 @@ class User(object):
         self.login = login
         self.state = None
         self.transport = transport
+        log.debug("trying to get user...")
         uid = UserBean.get_user_bean(login)
         if uid is None:
             UserBean.set_user_bean(login)
             uid = UserBean.get_user_bean(login)
+        log.debug("get user %i" % uid)
         self.uid = uid
