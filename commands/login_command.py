@@ -22,5 +22,6 @@ def login_command(transport, data):
         user.transport = transport
         rspd = {'login': login, 'status': 'ok'}
         rsp = Mlang().create_rsp(rspd, _id)
-        log.debug('client logon : %i %s'%(user.uid, user.transport))
-        transport.send(rsp)
+        peername = transport.get_extra_info('peername')
+        log.debug('client logon : %i %s' % (user.uid, str(peername)))
+        transport.write(rsp.encode())

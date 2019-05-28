@@ -14,5 +14,6 @@ def error_command(transport, data):
             _id = 99
         data['error_code'] = 1
         response = Mlang().create_rsp(data, _id)
-        log.debug('error command %s for transport %s'%(str(_id), str(transport)))
+        peername = transport.get_extra_info('peername')
+        log.debug('error command %s for transport %s'%(str(_id), str(peername)))
         transport.write(response)
