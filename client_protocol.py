@@ -27,5 +27,3 @@ class ClientProtocol(Protocol):
     def handle_cmd(self, data):
         CommandHandler().exec_cmd(self.transport, data)
 
-    def write_data(self, rsp):
-        super().write_data(rsp)

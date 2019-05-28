@@ -27,7 +27,3 @@ class Protocol(asyncio.Protocol, metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def data_received(self, data):
         self.data += data.decode()
-
-    @abc.abstractmethod
-    def write_data(self, rsp):
-        self.transport.write(rsp)
