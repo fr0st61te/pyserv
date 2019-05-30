@@ -1,20 +1,21 @@
 # -*- coding: utf8 -*-
 from bean.common_bean import CommonBean
+from bean.common_bean import User
 
 
 class UserBean(object):
-    _SELECT_USER_BY_LOGIN = """ SELECT UID FROM USERS WHERE LOGIN="%s" LIMIT 1 """
-    _INSERT_USER = """ INSERT INTO USERS (LOGIN) VALUES("%s") """
 
     @staticmethod
-    def get_user_bean(login):
-        row = CommonBean().fetch_row(UserBean._SELECT_USER_BY_LOGIN % (str(login)))
-        if row:
-            return row[0]
-        else:
-            return
+    def get_user(login):
+        session = CommonBean().get_session()
+        res = session.query(User.uid).filter(User.login == login).one_or_none()
+        if res:
+            return res.uid
+        return
 
     @staticmethod
-    def set_user_bean(login):
-        if not UserBean.get_user_bean(login):
-            CommonBean().fetch_row(UserBean._INSERT_USER % (str(login)))
+    def create_user(login, password):
+        if not UserBean.get_user(login):
+            session = CommonBean().get_session()
+            user = User(login=login, password=password)
+            session.add(user)

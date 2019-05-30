@@ -6,6 +6,7 @@ import threading
 
 log = Log().get_logger()
 
+
 class UserManager(metaclass=Singleton):
 
     def __init__(self):
@@ -20,10 +21,10 @@ class UserManager(metaclass=Singleton):
     def users(self):
         return self.__users
 
-    def add_user(self, login, transport=None):
+    def add_user(self, login, password, transport=None):
         self.lock.acquire()
         if not (login in self.users):
-            self.users[login] = User(login, transport)
+            self.users[login] = User(login, password, transport)
             self.lock.release()
             return 1
         else:
@@ -61,14 +62,14 @@ class DummyClient(object):
 class User(object):
     """ User and his properties """
 
-    def __init__(self, login, transport=None):
+    def __init__(self, login, password, transport=None):
         self.login = login
         self.state = None
         self.transport = transport
-        log.debug("trying to get user...")
-        uid = UserBean.get_user_bean(login)
+        log.debug("trying to get user %s ..." % login)
+        uid = UserBean.get_user(login)
         if uid is None:
-            UserBean.set_user_bean(login)
-            uid = UserBean.get_user_bean(login)
+            UserBean.create_user(login, password)
+            uid = UserBean.get_user(login)
         log.debug("get user %i" % uid)
         self.uid = uid

@@ -1,5 +1,6 @@
 # -*- coding: utf8 -*-
 from user_manager import UserManager
+from bean.user_bean import UserBean
 from core.utils import Mlang
 from core.log import Log
 
@@ -12,11 +13,12 @@ def login_command(transport, data):
     else:
         log.debug('login command start')
         login = data['login']
+        password = data['password']
         _id = int(data['id'])
         usermanager = UserManager()
         user = usermanager.get_user(login)
         if not user:
-            usermanager.add_user(login)
+            usermanager.add_user(login, password)
             user = usermanager.get_user(login)
         log.debug('get user %i' % user.uid)
         transport.uid = user.uid
