@@ -1,2 +1,2 @@
 # pyserv #
-simple python server on asyncio with sqlalchmey
+simple python server on asyncio with sqlalchemy
